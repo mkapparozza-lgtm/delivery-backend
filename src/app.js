@@ -14,8 +14,9 @@ app.use(express.json());
 app.set('io', io);
 
 const MONGO_URI = process.env.MONGODB_URI;
+console.log('ENV KEYS:', Object.keys(process.env).join(', '));
 console.log('MONGODB_URI defined:', !!MONGO_URI);
-console.log('NODE_ENV:', process.env.NODE_ENV);
+console.log('PORT:', process.env.PORT);
 
 mongoose.connect(MONGO_URI)
   .then(() => console.log('MongoDB connected'))
