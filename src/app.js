@@ -13,7 +13,11 @@ app.use(cors());
 app.use(express.json());
 app.set('io', io);
 
-mongoose.connect(process.env.MONGODB_URI)
+const MONGO_URI = process.env.MONGODB_URI;
+console.log('MONGODB_URI defined:', !!MONGO_URI);
+console.log('NODE_ENV:', process.env.NODE_ENV);
+
+mongoose.connect(MONGO_URI)
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.error('MongoDB error:', err));
 
